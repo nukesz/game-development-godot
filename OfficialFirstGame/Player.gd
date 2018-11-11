@@ -7,7 +7,7 @@ var screensize  # Size of the game window.
 
 
 func _ready():
-    #hide()
+    hide()
     screensize = get_viewport_rect().size
     
 func _process(delta):
