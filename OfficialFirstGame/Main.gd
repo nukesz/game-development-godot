@@ -5,29 +5,33 @@ var score
 
 func _ready():
     randomize()
-    new_game()
 
 func game_over():
     $ScoreTimer.stop()
     $MobTimer.stop()
+    $HUD.show_game_over()
 
 func new_game():
+    print("meg lettem hivvvva")
     score = 0
     $Player.start($StartPosition.position)
     $StartTimer.start()
+    $HUD.update_score(score)
+    $HUD.show_message("Get Ready")
 
 func _on_StartTimer_timeout():
-	print("_on_StartTimer_timeout")
-	$MobTimer.start()
-	$ScoreTimer.start()
+    print("_on_StartTimer_timeout")
+    $MobTimer.start()
+    $ScoreTimer.start()
 
 func _on_ScoreTimer_timeout():
-	print("_on_ScoreTimer_timeout")
-	score += 1
-	
+    print("_on_ScoreTimer_timeout")
+    score += 1
+    $HUD.update_score(score)
+    
 func _on_MobTimer_timeout():
     print("Spawning mob")
-	# Choose a random location on Path2D.
+    # Choose a random location on Path2D.
     $MobPath/MobSpawnLocation.set_offset(randi())
     # Create a Mob instance and add it to the scene.
     var mob = Mob.instance()
@@ -41,6 +45,5 @@ func _on_MobTimer_timeout():
     mob.rotation = direction
     # Choose the velocity.
     mob.set_linear_velocity(Vector2(rand_range(mob.min_speed, mob.max_speed), 0).rotated(direction))
-
 
 
