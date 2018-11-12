@@ -1,0 +1,8 @@
+### Godot ###
+.DS_Store
+*~
+.import/
+logs/
+.mono/
+export_presets.cfg
+bin/
