@@ -1,6 +1,6 @@
 extends Node
 
-onready var gem = preload("res://gem.tscn")
+onready var gem = preload("res://scenes/gems/gem.tscn")
 
 var screen_size
 var score = 0

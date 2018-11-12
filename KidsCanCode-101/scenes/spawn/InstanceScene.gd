@@ -1,6 +1,6 @@
 extends Node
 
-onready var sprite = preload("res://Sprite.tscn")
+onready var sprite = preload("res://scenes/spawn/Sprite.tscn")
 
 func _ready():
     for i in range(150):
