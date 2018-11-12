@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/arcade/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/arcade/platform.tscn" type="PackedScene" id=2]
+
+[node name="main" type="Node" index="0"]
+
+[node name="player" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 552.038, 302.258 )
+
+[node name="platform" parent="." index="1" instance=ExtResource( 2 )]
+
+
