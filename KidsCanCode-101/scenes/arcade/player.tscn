@@ -9,14 +9,16 @@ custom_solver_bias = 0.0
 radius = 46.4863
 height = 45.3334
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 448.403, 250.441 )
+z_index = 1
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -25,10 +27,20 @@ __meta__ = {
 
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="collision" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 shape = SubResource( 1 )
+
+[node name="ground_ray" type="RayCast2D" parent="." index="2"]
+
+position = Vector2( 0, 50 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 1
+_sections_unfolded = [ "Transform" ]
 
 

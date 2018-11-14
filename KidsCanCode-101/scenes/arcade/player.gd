@@ -4,9 +4,17 @@ const UP = Vector2(0, -1)
 const ACCELERATION = 50
 const MAX_SPEED = 200
 const FRICTION = -500
-const GRAVITY = 20
+const GRAVITY = 60
+const JUMP_HEIGHT = -1350
+const MIN_JUMP = -750
 
 var motion = Vector2()
+
+func _input(event):
+    if event.is_action_pressed("ui_up") and $ground_ray.is_colliding():
+        motion.y = JUMP_HEIGHT 
+    if event.is_action_released("ui_up"):
+        motion.y = clamp(motion.y, MIN_JUMP, motion.y)
 
 func _physics_process(delta):
     motion.y += GRAVITY

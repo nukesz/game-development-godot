@@ -11,4 +11,11 @@ position = Vector2( 552.038, 302.258 )
 
 [node name="platform" parent="." index="1" instance=ExtResource( 2 )]
 
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="platform2" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 1098.9, 252.872 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
 
