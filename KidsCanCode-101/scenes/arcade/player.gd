@@ -9,6 +9,7 @@ const JUMP_HEIGHT = -1350
 const MIN_JUMP = -750
 
 var motion = Vector2()
+var anim = "idle"
 
 func _input(event):
     if event.is_action_pressed("ui_up") and $ground_ray.is_colliding():
@@ -35,4 +36,14 @@ func _physics_process(delta):
             motion.x = lerp(motion.x, 0, 0.05)
             
     motion = move_and_slide(motion, UP) 
+        
+    if motion.x == 0:
+        anim = "idle"
+    else:
+        anim = "running"   
+    $sprite.animation = anim    
     
+    if motion.x < 0:
+        $sprite.flip_h = true  
+    elif motion.x > 0:
+        $sprite.flip_h = false
