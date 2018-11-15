@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/physics/tileBlack_02.png" type="Texture" id=1]
+[ext_resource path="res://scenes/physics/crate.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 93.6808, 43.9469 )
+
+[node name="main" type="Node" index="0"]
+
+[node name="wall" type="StaticBody2D" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 653.141, 567.095 )
+scale = Vector2( 3.88347, 0.550341 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="wall" index="0"]
+
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall" index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="wall2" type="StaticBody2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 115.156, 315.808 )
+rotation = 0.764425
+scale = Vector2( 3.15053, 0.550341 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="wall2" index="0"]
+
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2" index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="wall3" type="StaticBody2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 990.495, 291.544 )
+rotation = 1.57109
+scale = Vector2( 2.52081, 0.550341 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="wall3" index="0"]
+
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall3" index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="crate" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 508.782, 458.448 )
+
+[node name="crate2" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 534.715, 39.646 )
+
+[node name="crate3" parent="." index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 504.787, 175.684 )
+
+[node name="crate4" parent="." index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 499.345, 325.326 )
+
+

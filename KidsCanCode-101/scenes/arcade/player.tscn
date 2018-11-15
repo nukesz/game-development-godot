@@ -32,7 +32,7 @@ custom_solver_bias = 0.0
 radius = 46.4863
 height = 45.3334
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 z_index = 1
 input_pickable = false
@@ -50,7 +50,7 @@ __meta__ = {
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "running"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
