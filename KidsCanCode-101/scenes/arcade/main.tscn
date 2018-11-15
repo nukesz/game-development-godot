@@ -1,26 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://art/Arcade/background.png" type="Texture" id=1]
-[ext_resource path="res://scenes/arcade/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/arcade/platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/arcade/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/arcade/platform.tscn" type="PackedScene" id=2]
 
 [node name="main" type="Node"]
 
-[node name="background" type="Sprite" parent="." index="0"]
-
-position = Vector2( 691.742, 300.19 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="player" parent="." index="1" instance=ExtResource( 2 )]
+[node name="player" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 552.038, 302.258 )
 
-[node name="platform" parent="." index="2" instance=ExtResource( 3 )]
+[node name="platform" parent="." index="1" instance=ExtResource( 2 )]
 
-[node name="platform2" parent="." index="3" instance=ExtResource( 3 )]
+[node name="platform2" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 1098.9, 252.872 )
+
+[node name="platform3" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 1738.36, 464.346 )
+
+[node name="platform4" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 2382.85, 325.881 )
 
 

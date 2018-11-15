@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/arcade/player.gd" type="Script" id=1]
 [ext_resource path="res://art/Arcade/Player/idle/frame-1.png" type="Texture" id=2]
@@ -9,8 +9,9 @@
 [ext_resource path="res://art/Arcade/Player/running/frame-4.png" type="Texture" id=7]
 [ext_resource path="res://art/Arcade/Player/running/frame-5.png" type="Texture" id=8]
 [ext_resource path="res://art/Arcade/Player/running/frame-6.png" type="Texture" id=9]
+[ext_resource path="res://art/Arcade/background.png" type="Texture" id=10]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
@@ -25,22 +26,21 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 46.4863
 height = 45.3334
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
-position = Vector2( 448.403, 250.441 )
 z_index = 1
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Visibility", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -48,15 +48,15 @@ __meta__ = {
 [node name="sprite" type="AnimatedSprite" parent="." index="0"]
 
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "running"
-frame = 4
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="collision" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ground_ray" type="RayCast2D" parent="." index="2"]
 
@@ -66,5 +66,56 @@ exclude_parent = true
 cast_to = Vector2( 0, 20 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
+
+[node name="camera" type="Camera2D" parent="." index="3"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Smoothing" ]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="4"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 3072, 1536 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="background" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+texture = ExtResource( 10 )
 
 
