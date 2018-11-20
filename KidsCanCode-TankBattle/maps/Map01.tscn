@@ -52,7 +52,7 @@ curve = SubResource( 1 )
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D" index="0"]
 
 position = Vector2( 1109.27, 1407.34 )
-rotation = -2.92111
+rotation = -2.92117
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
