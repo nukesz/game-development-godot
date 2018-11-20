@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=2]
@@ -10,6 +10,13 @@
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, -49.5091, -12.3492, 1109.27, 1407.34, 0, 0, -11.6847, 41.1468, 1052.36, 1437.93, 0, 0, -22.9161, 76.1493, 825.508, 2059, 0, 0, 227.161, 71.3753, 876.342, 2145.39, -33.8004, 3.198, 107.509, 54.175, 2404.84, 2679.86, 0, 0, 20.9226, -51.0625, 2523.29, 2640.7, 0, 0, 10.5846, -55.8646, 2555.13, 2538.09, 0, 0, 18.7372, -5.98339, 2657.11, 2501.85, 0, 0, 63.1711, 22.3387, 3004.13, 2624.56, 0, 0, 20.2404, -13.4759, 3094.64, 2586.68, 0, 0, 15.2493, -86.8846, 3212.44, 2233.11, 0, 0, -35.3318, -11.921, 3161.84, 2130.87, 0, 0, 0, 0, 1109.27, 1407.34 )
+}
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1345.51, -219.487, 0, 0, -1.85061, 57.3691, 1343.66, 1288.76, 0, 0, 0, 0, 1291.85, 1342.43, 0, 0, -57.3691, 9.25307, 509.035, 1342.43, 0, 0, 0, 0, 442.413, 1283.21, 0, 0, 16.6555, -42.5641, 436.861, 1000.07, 0, 0, 0, 0, 394.297, 953.803, 0, 0, -48.116, 7.40246, -258.97, 957.504, -9.25307, -3.70123, -3.70123, 25.9086, -318.19, 927.894, -44.4148, 12.9543, -7.40246, -24.058, -320.04, 852.019, 0, 0, 7.40246, -12.9543, -271.924, 822.409, 0, 0, 75.8752, 0, 377.641, 827.961, 0, 0, 0, 0, 446.114, 796.501, 0, 0, 0, 0, 442.413, -252.798, -46.2654, 0, -27.7592, -18.5061, 488.678, -308.316, 0, 0, 59.2197, 11.1037, 1289.99, -304.615, 0, 0, 0, 0, 1345.51, -219.487 )
 }
 
 [node name="Map01" type="Node" index="0"]
@@ -63,6 +70,26 @@ lookahead = 4.0
 
 [node name="EnemyTank" parent="Paths/Path2D/PathFollow2D" index="0" instance=ExtResource( 4 )]
 
+detect_radius = 400
+
+[node name="Path2D2" type="Path2D" parent="Paths" index="1"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D2" index="0"]
+
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="EnemyTank" parent="Paths/Path2D2/PathFollow2D" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 1345.16, -221.459 )
 detect_radius = 400
 
 
