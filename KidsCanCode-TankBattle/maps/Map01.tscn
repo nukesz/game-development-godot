@@ -80,7 +80,7 @@ curve = SubResource( 2 )
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D2" index="0"]
 
 position = Vector2( 1345.51, -219.487 )
-rotation = 1.57204
+rotation = 1.57197
 offset = 0.0
 h_offset = 0.0
 v_offset = 0.0
@@ -92,8 +92,12 @@ lookahead = 4.0
 [node name="EnemyTank" parent="Paths/Path2D2/PathFollow2D" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 1345.16, -221.459 )
-detect_radius = 400
+detect_radius = 700
 
 [connection signal="shoot" from="Player" to="." method="_on_Tank_shoot"]
+
+[connection signal="shoot" from="Paths/Path2D/PathFollow2D/EnemyTank" to="." method="_on_Tank_shoot"]
+
+[connection signal="shoot" from="Paths/Path2D2/PathFollow2D/EnemyTank" to="." method="_on_Tank_shoot"]
 
 
