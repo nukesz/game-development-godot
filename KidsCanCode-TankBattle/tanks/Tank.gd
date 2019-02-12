@@ -40,7 +40,7 @@ func _physics_process(delta):
 func take_damage(amount):
     health -= amount
     emit_signal('health_changed', health * 100 / max_health)
-    if health < 0:
+    if health <= 0:
         explode()
         
 func explode():
