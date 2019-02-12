@@ -49,6 +49,14 @@ _sections_unfolded = [ "Offset" ]
 position = Vector2( 70, 0 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="Flash" parent="Turret" index="1"]
+
+position = Vector2( 55, 0 )
+texture = ExtResource( 4 )
+offset = Vector2( 25, 0 )
+region_rect = Rect2( 584, 58, 56, 32 )
+_sections_unfolded = [ "Material", "Offset", "Region", "Transform", "Visibility" ]
+
 [node name="Camera2D" type="Camera2D" parent="." index="4"]
 
 anchor_mode = 1
@@ -73,5 +81,13 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
+
+[node name="AnimationPlayer" parent="." index="5"]
+
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="Explosion" parent="." index="6"]
+
+_sections_unfolded = [ "Transform" ]
 
 
