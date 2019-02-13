@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://tanks/EnemyTank.tscn" type="PackedScene" id=1]
+
+[node name="GunTurret" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Collision", "Transform" ]
+max_speed = 1
+rotation_speed = 1.0
+gun_cooldown = 0.1
+max_health = 50
+
+[node name="Body" parent="." index="0"]
+
+region_rect = Rect2( 692, 261.75, 80.25, 84 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Turret" parent="." index="2"]
+
+region_rect = Rect2( 271, 60, 64, 28 )
+
+
