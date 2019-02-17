@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 38.9732, 37.7616 )
 
-[node name="Player" instance=ExtResource( 1 )]
+[node name="Player" index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 371.457, 211.731 )
 collision_layer = 2

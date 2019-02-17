@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tanks/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tanks/EnemyTank.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://tanks/GunTurret.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -97,6 +98,12 @@ detect_radius = 700
 
 [node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
 
+[node name="GunTurret" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 1783.54, 614.753 )
+
+[connection signal="dead" from="Player" to="." method="_on_Player_dead"]
+
 [connection signal="health_changed" from="Player" to="HUD" method="update_healthbar"]
 
 [connection signal="shoot" from="Player" to="." method="_on_Tank_shoot"]
@@ -104,5 +111,7 @@ detect_radius = 700
 [connection signal="shoot" from="Paths/Path2D/PathFollow2D/EnemyTank" to="." method="_on_Tank_shoot"]
 
 [connection signal="shoot" from="Paths/Path2D2/PathFollow2D/EnemyTank" to="." method="_on_Tank_shoot"]
+
+[connection signal="shoot" from="GunTurret" to="." method="_on_Tank_shoot"]
 
 
