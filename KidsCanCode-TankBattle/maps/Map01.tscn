@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://tanks/EnemyTank.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tanks/GunTurret.tscn" type="PackedScene" id=6]
+[ext_resource path="res://environment/Obstacle.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -51,6 +52,8 @@ _sections_unfolded = [ "Cell", "Material", "Transform", "Visibility" ]
 position = Vector2( 1686.98, 1131.92 )
 
 [node name="Paths" type="Node" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Path2D" type="Path2D" parent="Paths" index="0"]
 
@@ -101,6 +104,22 @@ detect_radius = 700
 [node name="GunTurret" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 1783.54, 614.753 )
+input_pickable = false
+collision/safe_margin = 0.08
+
+[node name="Obstacles" type="Node2D" parent="." index="5"]
+
+[node name="Obstacle" parent="Obstacles" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 1342.35, 1530.36 )
+rotation = 0.780079
+type = null
+
+[node name="Obstacle2" parent="Obstacles" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 1152.34, 1150.85 )
+rotation = 0.68805
+type = 18
 
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 
