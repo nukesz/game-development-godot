@@ -113,13 +113,31 @@ collision/safe_margin = 0.08
 
 position = Vector2( 1342.35, 1530.36 )
 rotation = 0.780079
-type = 10
+type = 11
 
 [node name="Obstacle2" parent="Obstacles" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 1152.34, 1150.85 )
 rotation = 0.68805
 type = 18
+
+[node name="Obstacle3" parent="Obstacles" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 1033.99, 1482.78 )
+rotation = -0.584848
+type = 11
+
+[node name="Obstacle4" parent="Obstacles" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 1125.13, 1550.8 )
+rotation = 1.62749
+type = 11
+
+[node name="Obstacle5" parent="Obstacles" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 1240.77, 1560.32 )
+rotation = 1.58053
+type = 11
 
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 
