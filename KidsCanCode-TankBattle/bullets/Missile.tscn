@@ -62,7 +62,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Animation", "Emission Shape", "Flags", "Gravity", "Orbit Velocity", "Spread", "Trail" ]
 
-[node name="Missile" index="0" instance=ExtResource( 1 )]
+[node name="Missile" instance=ExtResource( 1 )]
 
 speed = 400
 damage = 15

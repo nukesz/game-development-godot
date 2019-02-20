@@ -21,7 +21,8 @@ Bullet = ExtResource( 3 )
 max_speed = 200
 rotation_speed = 1.0
 gun_cooldown = 0.4
-max_health = 100
+gun_shots = 1
+gun_spread = 0.2
 
 [node name="Body" parent="." index="0"]
 
