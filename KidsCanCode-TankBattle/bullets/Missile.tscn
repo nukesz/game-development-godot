@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://bullets/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/onlyObjects_retina_rotated.png" type="Texture" id=2]
+[ext_resource path="res://assets/spr_smoke_strip24.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 17.9391, 8.09378 )
+
+[sub_resource type="Curve" id=2]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.134922 ), 0.0, 0.0, 0, 0, Vector2( 0.997834, 0.5 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+
+flags = 4
+width = 2048
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 3 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 1.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Animation", "Emission Shape", "Flags", "Gravity", "Orbit Velocity", "Spread", "Trail" ]
+
+[node name="Missile" index="0" instance=ExtResource( 1 )]
+
+speed = 400
+damage = 15
+lifetime = 0.5
+steer_force = 25.0
+
+[node name="Sprite" parent="." index="0"]
+
+position = Vector2( 18, 0 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 584, 244, 36, 16 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="Trail" type="Particles2D" parent="." index="4"]
+
+show_behind_parent = true
+emitting = true
+amount = 30
+lifetime = 0.4
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 4 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 24
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Visibility", "Z Index" ]
+
+

@@ -10,6 +10,7 @@ extents = Vector2( 13.9996, 8.18184 )
 
 [node name="EnemyBullet" instance=ExtResource( 1 )]
 
+_sections_unfolded = [ "Audio Bus", "Collision", "Pickable", "Transform", "Z Index" ]
 speed = 1100
 damage = 8
 lifetime = 0.5

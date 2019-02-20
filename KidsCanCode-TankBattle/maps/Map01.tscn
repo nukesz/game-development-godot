@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://tanks/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tanks/EnemyTank.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://tanks/GunTurret.tscn" type="PackedScene" id=6]
-[ext_resource path="res://environment/Obstacle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bullets/Missile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://tanks/GunTurret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/Obstacle.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -22,7 +23,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1345.51, -219.487, 0, 0, -1.85061, 57.3691, 1343.66, 1288.76, 0, 0, 0, 0, 1291.85, 1342.43, 0, 0, -57.3691, 9.25307, 509.035, 1342.43, 0, 0, 0, 0, 442.413, 1283.21, 0, 0, 16.6555, -42.5641, 436.861, 1000.07, 0, 0, 0, 0, 394.297, 953.803, 0, 0, -48.116, 7.40246, -258.97, 957.504, -9.25307, -3.70123, -3.70123, 25.9086, -318.19, 927.894, -44.4148, 12.9543, -7.40246, -24.058, -320.04, 852.019, 0, 0, 7.40246, -12.9543, -271.924, 822.409, 0, 0, 75.8752, 0, 377.641, 827.961, 0, 0, 0, 0, 446.114, 796.501, 0, 0, 0, 0, 442.413, -252.798, -46.2654, 0, -27.7592, -18.5061, 488.678, -308.316, 0, 0, 59.2197, 11.1037, 1289.99, -304.615, 0, 0, 0, 0, 1345.51, -219.487 )
 }
 
-[node name="Map01" type="Node" index="0"]
+[node name="Map01" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -50,10 +51,9 @@ _sections_unfolded = [ "Cell", "Material", "Transform", "Visibility" ]
 [node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 1686.98, 1131.92 )
+collision_mask = 13
 
 [node name="Paths" type="Node" parent="." index="2"]
-
-editor/display_folded = true
 
 [node name="Path2D" type="Path2D" parent="Paths" index="0"]
 
@@ -75,6 +75,7 @@ lookahead = 4.0
 
 [node name="EnemyTank" parent="Paths/Path2D/PathFollow2D" index="0" instance=ExtResource( 4 )]
 
+Bullet = ExtResource( 5 )
 detect_radius = 400
 
 [node name="Path2D2" type="Path2D" parent="Paths" index="1"]
@@ -99,9 +100,9 @@ lookahead = 4.0
 position = Vector2( 1345.16, -221.459 )
 detect_radius = 700
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
+[node name="HUD" parent="." index="3" instance=ExtResource( 6 )]
 
-[node name="GunTurret" parent="." index="4" instance=ExtResource( 6 )]
+[node name="GunTurret" parent="." index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 1783.54, 614.753 )
 input_pickable = false
@@ -109,31 +110,33 @@ collision/safe_margin = 0.08
 
 [node name="Obstacles" type="Node2D" parent="." index="5"]
 
-[node name="Obstacle" parent="Obstacles" index="0" instance=ExtResource( 7 )]
+editor/display_folded = true
+
+[node name="Obstacle" parent="Obstacles" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 1342.35, 1530.36 )
 rotation = 0.780079
 type = 11
 
-[node name="Obstacle2" parent="Obstacles" index="1" instance=ExtResource( 7 )]
+[node name="Obstacle2" parent="Obstacles" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 1152.34, 1150.85 )
 rotation = 0.68805
 type = 18
 
-[node name="Obstacle3" parent="Obstacles" index="2" instance=ExtResource( 7 )]
+[node name="Obstacle3" parent="Obstacles" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 1033.99, 1482.78 )
 rotation = -0.584848
 type = 11
 
-[node name="Obstacle4" parent="Obstacles" index="3" instance=ExtResource( 7 )]
+[node name="Obstacle4" parent="Obstacles" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 1125.13, 1550.8 )
 rotation = 1.62749
 type = 11
 
-[node name="Obstacle5" parent="Obstacles" index="4" instance=ExtResource( 7 )]
+[node name="Obstacle5" parent="Obstacles" index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 1240.77, 1560.32 )
 rotation = 1.58053

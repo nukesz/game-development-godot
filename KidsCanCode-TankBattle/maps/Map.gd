@@ -14,10 +14,10 @@ func set_camera_limits():
     print(map_limits)
     print(map_cellsize)
 
-func _on_Tank_shoot(bullet, _position, _direction):
+func _on_Tank_shoot(bullet, _position, _direction, _target = null):
     var b = bullet.instance()
     add_child(b)
-    b.start(_position, _direction)
+    b.start(_position, _direction, _target)
 
 func _on_Player_dead():
     print("Respawn")

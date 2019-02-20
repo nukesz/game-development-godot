@@ -31,11 +31,12 @@ func _process(delta):
         var current_dir = Vector2(1, 0).rotated($Turret.global_rotation)
         $Turret.global_rotation = current_dir.linear_interpolate(target_dir, turret_speed * delta).angle()
         if target_dir.dot(current_dir) > 0.9:
-            shoot()
+            shoot(target)
             
 
 func _on_DetectRadius_body_entered(body):
-    target = body
+    if (body.get_name() == "Player"):
+        target = body
 
 
 func _on_DetectRadius_body_exited(body):

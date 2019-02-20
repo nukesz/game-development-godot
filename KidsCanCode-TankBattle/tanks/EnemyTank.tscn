@@ -71,6 +71,8 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius" index="0"]
 
+_sections_unfolded = [ "Transform" ]
+
 [node name="LookAhead1" type="RayCast2D" parent="." index="5"]
 
 position = Vector2( 0, -30 )
