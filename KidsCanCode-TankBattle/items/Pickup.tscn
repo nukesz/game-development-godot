@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Pickup.gd" type="Script" id=1]
+[ext_resource path="res://assets/onlyObjects_retina_rotated.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 33.4927
+
+[node name="Pickup" type="Area2D" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+type = null
+ammo = Vector2( 10, 25 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 420, 134, 56, 55 )
+_sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+shape = SubResource( 1 )
+
+
