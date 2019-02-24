@@ -151,12 +151,10 @@ type = 11
 [node name="Pickup" parent="items" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 1878.07, 1127.85 )
-amount = Vector2( 10, 25 )
 
 [node name="Pickup2" parent="items" index="1" instance=ExtResource( 9 )]
 
 position = Vector2( 1989.61, 1724.75 )
-amount = Vector2( 10, 25 )
 
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 
