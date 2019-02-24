@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tanks/GunTurret.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environment/Obstacle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://items/Pickup.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -54,6 +55,8 @@ position = Vector2( 1686.98, 1131.92 )
 max_health = 200
 
 [node name="Paths" type="Node" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Path2D" type="Path2D" parent="Paths" index="0"]
 
@@ -107,8 +110,6 @@ detect_radius = 700
 [node name="GunTurret" parent="." index="4" instance=ExtResource( 7 )]
 
 position = Vector2( 1783.54, 614.753 )
-input_pickable = false
-collision/safe_margin = 0.08
 max_health = 100
 
 [node name="Obstacles" type="Node2D" parent="." index="5"]
@@ -144,6 +145,18 @@ type = 11
 position = Vector2( 1240.77, 1560.32 )
 rotation = 1.58053
 type = 11
+
+[node name="items" type="Node2D" parent="." index="6"]
+
+[node name="Pickup" parent="items" index="0" instance=ExtResource( 9 )]
+
+position = Vector2( 1878.07, 1127.85 )
+amount = Vector2( 10, 25 )
+
+[node name="Pickup2" parent="items" index="1" instance=ExtResource( 9 )]
+
+position = Vector2( 1989.61, 1724.75 )
+amount = Vector2( 10, 25 )
 
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 
