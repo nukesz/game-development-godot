@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Pickup.gd" type="Script" id=1]
 [ext_resource path="res://assets/effects/shadow_circle.png" type="Texture" id=2]
 [ext_resource path="res://assets/onlyObjects_retina_rotated.png" type="Texture" id=3]
+[ext_resource path="res://assets/effects/wrench_white.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -51,6 +52,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.596706 ), Color( 1, 1, 1, 0.33702 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Icon:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.7, 0.7 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Icon:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Pickup" type="Area2D" index="0"]
 
@@ -70,15 +95,15 @@ amount = Vector2( 10, 25 )
 
 [node name="Shadow" type="Sprite" parent="." index="0"]
 
-modulate = Color( 1, 1, 1, 0.518993 )
+modulate = Color( 1, 1, 1, 0.470987 )
 position = Vector2( 0, 25 )
-scale = Vector2( 0.225062, 0.450124 )
+scale = Vector2( 0.209657, 0.419314 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-position = Vector2( 0, -5.31172 )
+position = Vector2( 0, -9.60992 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 420, 134, 56, 55 )
@@ -98,6 +123,15 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/bounce = SubResource( 2 )
 blend_times = [  ]
+
+[node name="Icon" type="Sprite" parent="." index="4"]
+
+modulate = Color( 0.21875, 1, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.757942 )
+position = Vector2( 0, -85 )
+scale = Vector2( 0.651588, 0.651588 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [connection signal="body_entered" from="." to="." method="_on_Pickup_body_entered"]
 
