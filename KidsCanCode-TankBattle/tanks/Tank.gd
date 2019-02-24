@@ -51,6 +51,13 @@ func take_damage(amount):
     if health <= 0:
         explode()
         
+func heal(amount):
+    print("Tank is healing")
+    health += amount  
+    health = clamp(health, 0, max_health)
+    emit_signal('health_changed', health * 100 / max_health)
+     
+        
 func explode():
     $CollisionShape2D.disabled = true
     alive = false
