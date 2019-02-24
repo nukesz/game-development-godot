@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Pickup.gd" type="Script" id=1]
-[ext_resource path="res://assets/onlyObjects_retina_rotated.png" type="Texture" id=2]
+[ext_resource path="res://assets/effects/shadow_circle.png" type="Texture" id=2]
+[ext_resource path="res://assets/onlyObjects_retina_rotated.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -26,8 +27,32 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -20 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, 0.5 ), Vector2( 0.166667, 0.333333 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Shadow:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.596706 ), Color( 1, 1, 1, 0.33702 ) ]
+}
 
-[node name="Pickup" type="Area2D"]
+[node name="Pickup" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -43,20 +68,28 @@ _sections_unfolded = [ "Collision" ]
 type = null
 amount = Vector2( 10, 25 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Shadow" type="Sprite" parent="." index="0"]
 
-position = Vector2( 0, -0.167718 )
+modulate = Color( 1, 1, 1, 0.518993 )
+position = Vector2( 0, 25 )
+scale = Vector2( 0.225062, 0.450124 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0, -5.31172 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 420, 134, 56, 55 )
 _sections_unfolded = [ "Region", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
 visible = false
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = "bounce"
