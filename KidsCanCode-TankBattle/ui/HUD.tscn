@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ui/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/shield_silver.png" type="Texture" id=2]
 [ext_resource path="res://assets/UI/glassPanel_200.png" type="Texture" id=3]
 [ext_resource path="res://assets/UI/barHorizontal_green_mid 200.png" type="Texture" id=4]
-[ext_resource path="res://assets/UI/barHorizontal_red_mid 200.png" type="Texture" id=5]
-[ext_resource path="res://assets/UI/barHorizontal_white_mid 200.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/dotWhite.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/barHorizontal_red_mid 200.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/barHorizontal_white_mid 200.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -23,7 +24,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ) ]
 }
 
 [node name="HUD" type="CanvasLayer" index="0"]
@@ -126,6 +127,38 @@ playback_speed = 1.0
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
+
+[node name="AmmoGauge" type="TextureProgress" parent="Margin/Container" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 238.0
+margin_right = 262.0
+margin_bottom = 560.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 80.0
+exp_edit = false
+rounded = false
+texture_under = null
+texture_over = null
+texture_progress = ExtResource( 5 )
+fill_mode = 4
+radial_initial_angle = 270.0
+radial_fill_degrees = 180.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Radial Fill", "Textures" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 
