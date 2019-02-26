@@ -24,7 +24,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1345.51, -219.487, 0, 0, -1.85061, 57.3691, 1343.66, 1288.76, 0, 0, 0, 0, 1291.85, 1342.43, 0, 0, -57.3691, 9.25307, 509.035, 1342.43, 0, 0, 0, 0, 442.413, 1283.21, 0, 0, 16.6555, -42.5641, 436.861, 1000.07, 0, 0, 0, 0, 394.297, 953.803, 0, 0, -48.116, 7.40246, -258.97, 957.504, -9.25307, -3.70123, -3.70123, 25.9086, -318.19, 927.894, -44.4148, 12.9543, -7.40246, -24.058, -320.04, 852.019, 0, 0, 7.40246, -12.9543, -271.924, 822.409, 0, 0, 75.8752, 0, 377.641, 827.961, 0, 0, 0, 0, 446.114, 796.501, 0, 0, 0, 0, 442.413, -252.798, -46.2654, 0, -27.7592, -18.5061, 488.678, -308.316, 0, 0, 59.2197, 11.1037, 1289.99, -304.615, 0, 0, 0, 0, 1345.51, -219.487 )
 }
 
-[node name="Map01" type="Node"]
+[node name="Map01" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -53,6 +53,7 @@ _sections_unfolded = [ "Cell", "Material", "Transform", "Visibility" ]
 
 position = Vector2( 1686.98, 1131.92 )
 max_health = 200
+offroad_friction = 0.75
 
 [node name="Paths" type="Node" parent="." index="2"]
 
@@ -80,9 +81,8 @@ lookahead = 4.0
 
 Bullet = ExtResource( 5 )
 rotation_speed = 0.0
+offroad_friction = 0.75
 gun_shots = 3
-max_ammo = 20
-ammo = -1
 detect_radius = 400
 
 [node name="Path2D2" type="Path2D" parent="Paths" index="1"]
@@ -105,8 +105,7 @@ lookahead = 4.0
 [node name="EnemyTank" parent="Paths/Path2D2/PathFollow2D" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 1345.16, -221.459 )
-max_ammo = 20
-ammo = -1
+offroad_friction = 0.75
 detect_radius = 700
 
 [node name="HUD" parent="." index="3" instance=ExtResource( 6 )]
@@ -115,8 +114,7 @@ detect_radius = 700
 
 position = Vector2( 1783.54, 614.753 )
 max_health = 100
-max_ammo = 20
-ammo = -1
+offroad_friction = 0.75
 
 [node name="Obstacles" type="Node2D" parent="." index="5"]
 

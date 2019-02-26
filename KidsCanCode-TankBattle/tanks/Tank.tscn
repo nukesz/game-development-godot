@@ -53,7 +53,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 
-[node name="Tank" type="KinematicBody2D"]
+[node name="Tank" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -65,8 +65,11 @@ max_speed = null
 rotation_speed = null
 gun_cooldown = null
 max_health = null
+offroad_friction = 0.75
 gun_shots = 1
 gun_spread = 0.2
+max_ammo = 20
+ammo = -1
 
 [node name="Body" type="Sprite" parent="." index="0"]
 
