@@ -31,14 +31,16 @@ var regions = {
 } 
 
 export (Items) var type setget _update
-
+ 
 func _update(_type): 
     type = _type     
     if !Engine.editor_hint:  
         yield(self, 'tree_entered')
-    $Sprite.region_rect = regions[type]
-    var rect = RectangleShape2D.new()
-    rect.extents = $Sprite.region_rect.size / 2
-    $CollisionShape2D.shape = rect  
+        
+    if has_node("Sprite"):    
+        $Sprite.region_rect = regions[type]
+        var rect = RectangleShape2D.new()
+        rect.extents = $Sprite.region_rect.size / 2
+        $CollisionShape2D.shape = rect  
 
  

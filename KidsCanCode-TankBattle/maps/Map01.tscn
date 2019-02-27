@@ -79,6 +79,7 @@ lookahead = 4.0
 [node name="EnemyTank" parent="Paths/Path2D/PathFollow2D" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 0, 0 )
+_sections_unfolded = [ "Collision", "Transform" ]
 Bullet = ExtResource( 5 )
 rotation_speed = 0.0
 gun_shots = 3
@@ -104,6 +105,7 @@ lookahead = 4.0
 [node name="EnemyTank" parent="Paths/Path2D2/PathFollow2D" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 1345.16, -221.459 )
+_sections_unfolded = [ "Collision", "Transform" ]
 detect_radius = 700
 
 [node name="HUD" parent="." index="3" instance=ExtResource( 6 )]
@@ -151,7 +153,7 @@ type = 11
 
 [node name="Pickup" parent="items" index="0" instance=ExtResource( 9 )]
 
-position = Vector2( 1878.07, 1127.85 )
+position = Vector2( 1876.22, 1127.85 )
 type = 1
 
 [node name="Pickup2" parent="items" index="1" instance=ExtResource( 9 )]
