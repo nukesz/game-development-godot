@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 24, 24 )
+extents = Vector2( 16, 48 )
 
-[node name="Obstacle" type="StaticBody2D"]
+[node name="Obstacle" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -19,13 +19,13 @@ friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-type = 5
+type = 10
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 172, 89, 48, 48 )
+region_rect = Rect2( 336, 443, 32, 96 )
 _sections_unfolded = [ "Region" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]

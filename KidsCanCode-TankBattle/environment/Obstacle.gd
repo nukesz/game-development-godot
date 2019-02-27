@@ -28,17 +28,17 @@ var regions = {
     Items.treeBrown_small: Rect2(694, 118, 72, 72),
     Items.treeGreen_large: Rect2(128, 654, 128, 128),
     Items.treeGreen_small: Rect2(694, 190, 72, 72)
-}
+} 
 
 export (Items) var type setget _update
 
-func _update(_type):
-    type = _type
-    if !Engine.editor_hint:
+func _update(_type): 
+    type = _type     
+    if !Engine.editor_hint:  
         yield(self, 'tree_entered')
-    
     $Sprite.region_rect = regions[type]
     var rect = RectangleShape2D.new()
     rect.extents = $Sprite.region_rect.size / 2
-    $CollisionShape2D.shape = rect
+    $CollisionShape2D.shape = rect  
+
  

@@ -16,12 +16,11 @@ position = Vector2( 371.457, 211.731 )
 collision_layer = 2
 collision_mask = 13
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 Bullet = ExtResource( 3 )
 max_speed = 200
 rotation_speed = 1.0
 gun_cooldown = 0.4
-max_ammo = 20
 ammo = 10
 
 [node name="Body" parent="." index="0"]
@@ -29,7 +28,7 @@ ammo = 10
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 308, 262, 80, 84 )
-_sections_unfolded = [ "Animation", "Offset", "Region" ]
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="CollisionShape2D" parent="." index="1"]
 
