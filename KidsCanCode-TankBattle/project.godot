@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="KidsCanCode-TankBattle"
-run/main_scene="res://maps/Map01.tscn"
+run/main_scene="res://ui/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
