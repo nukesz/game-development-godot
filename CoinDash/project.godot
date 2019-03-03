@@ -10,9 +10,17 @@ config_version=3
 
 [application]
 
-config/name="coin-dash"
+config/name="CoinDash"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=480
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
