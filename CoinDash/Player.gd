@@ -11,6 +11,11 @@ func _process(delta):
     position.x = clamp(position.x, 0, screensize.x) 
     position.y = clamp(position.y, 0, screensize.y) 
     
+    if velocity.length() > 0:
+        $AnimatedSprite.animation = "run"
+        $AnimatedSprite.flip_h = velocity.x < 0
+    else:    
+        $AnimatedSprite.animation = "idle"
     
 func get_input():
     velocity = Vector2()

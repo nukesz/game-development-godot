@@ -59,6 +59,7 @@ speed = 350
 position = Vector2( 0, -5 )
 frames = SubResource( 1 )
 animation = "idle"
+playing = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
