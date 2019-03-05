@@ -48,6 +48,6 @@ func _on_Player_area_entered(area):
     if area.is_in_group("coins"):
         area.pickup()
         emit_signal("pickup")
-    if area.is_in_group("obstackles"):
+    if area.is_in_group("obstacles"):
         emit_signal("hurt")
         die()    

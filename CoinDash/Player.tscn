@@ -36,9 +36,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 9.61, 10.8197 )
+extents = Vector2( 19.6864, 21.8283 )
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -56,7 +56,8 @@ speed = 350
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( 0, -5 )
+position = Vector2( 0, -10 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "idle"
 frame = 2

@@ -27,7 +27,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 24.9685
 
-[node name="Coin" type="Area2D" index="0" groups=[
+[node name="Coin" type="Area2D" groups=[
 "coins",
 ]]
 
@@ -46,7 +46,7 @@ _sections_unfolded = [ "Collision" ]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "shine"
-frame = 5
+frame = 7
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
