@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/grass.png" type="Texture" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node" index="0"]
 
@@ -41,5 +42,11 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="HUD" parent="." index="5" instance=ExtResource( 5 )]
+
+[connection signal="pickup" from="Player" to="." method="_on_Player_pickup"]
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
 
 

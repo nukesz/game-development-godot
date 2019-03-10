@@ -38,3 +38,16 @@ func spawn_coins():
         $CoinContainer.add_child(c)
         c.screensize = screensize
         c.position = Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))  
+
+func _on_GameTimer_timeout():
+    time_left -= 1
+    $HUD.update_timer(time_left)
+    if time_left <= 0:
+        game_over()
+
+func game_over():
+    $HUD.show_game_over()
+
+func _on_Player_pickup():
+    score += 1
+    $HUD.update_score(score)
