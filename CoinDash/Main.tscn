@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://assets/audio/Level.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/audio/Hit.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/audio/Powerup.wav" type="AudioStream" id=10]
+[ext_resource path="res://Cactus.tscn" type="PackedScene" id=11]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 Coin = ExtResource( 2 )
@@ -93,6 +94,12 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="Cactus" parent="." index="11" instance=ExtResource( 11 )]
+
+position = Vector2( 366.162, 148.291 )
+
+[connection signal="hurt" from="Player" to="." method="_on_Player_hurt"]
 
 [connection signal="pickup" from="Player" to="." method="_on_Player_pickup"]
 

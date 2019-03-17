@@ -27,3 +27,8 @@ func _on_Tween_tween_completed(object, key):
 func _on_Timer_timeout():
     $AnimatedSprite.frame = 0
     $AnimatedSprite.play()
+
+
+func _on_Coin_area_entered(area):
+    if area.is_in_group("obstacles"):
+        position = Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))

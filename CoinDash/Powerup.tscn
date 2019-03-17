@@ -26,7 +26,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 24.9685
 
-[node name="Powerup" type="Area2D" index="0" groups=[
+[node name="Powerup" type="Area2D" groups=[
 "powerups",
 ]]
 
@@ -75,6 +75,8 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[connection signal="area_entered" from="." to="." method="_on_Powerup_area_entered"]
 
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 

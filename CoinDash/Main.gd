@@ -77,3 +77,5 @@ func _on_Player_pickup(type):
             $HUD.update_timer(time_left)
 
 
+func _on_Player_hurt():
+    game_over()
