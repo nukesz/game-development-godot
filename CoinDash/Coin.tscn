@@ -27,7 +27,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 24.9685
 
-[node name="Coin" type="Area2D" groups=[
+[node name="Coin" type="Area2D" index="0" groups=[
 "coins",
 ]]
 
@@ -46,12 +46,23 @@ _sections_unfolded = [ "Collision" ]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "shine"
-frame = 7
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 
 
