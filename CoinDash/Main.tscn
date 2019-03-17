@@ -10,7 +10,7 @@
 
 script = ExtResource( 1 )
 Coin = ExtResource( 2 )
-playtime = 30
+playtime = 5
 
 [node name="Background" type="TextureRect" parent="." index="0"]
 
@@ -48,5 +48,7 @@ autostart = false
 [connection signal="pickup" from="Player" to="." method="_on_Player_pickup"]
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+
+[connection signal="start_game" from="HUD" to="." method="new_game"]
 
 
