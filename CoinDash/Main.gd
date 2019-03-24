@@ -7,8 +7,8 @@ export (int) var playtime
 var level
 var score
 var time_left
-var screensize
-var playing = false
+var screensize: Vector2
+var playing: = false
 
 func _ready():
     randomize()
@@ -16,11 +16,11 @@ func _ready():
     $Player.screensize = screensize
     $Player.hide()
     
-func _process(delta):
+func _process(delta: float):
     if playing and $CoinContainer.get_child_count() == 0:
         level += 1
         time_left += 5
-        spawn_coins()    
+        spawn_coins()            
     
 func new_game():
     playing = true
@@ -42,7 +42,7 @@ func spawn_coins():
         var c = Coin.instance()
         $CoinContainer.add_child(c)
         c.screensize = screensize
-        c.position = Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))  
+        c.position = _get_random_position()
 
 func _on_GameTimer_timeout():
     time_left -= 1
@@ -54,7 +54,10 @@ func _on_PowerupTimer_timeout():
     var p = Powerup.instance()
     add_child(p)
     p.screensize = screensize
-    p.position = Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))
+    p.position = _get_random_position()
+
+func _get_random_position():
+    return Vector2(rand_range(0, screensize.x), rand_range(0, screensize.y))
 
 func game_over():
     playing = false
