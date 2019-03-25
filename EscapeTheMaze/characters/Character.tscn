@@ -85,3 +85,19 @@ anims/left = SubResource( 3 )
 anims/right = SubResource( 4 )
 anims/up = SubResource( 5 )
 
+[node name="RayCastUp" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -64 )
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 64 )
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -65, 0 )
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 64, 0 )
+
