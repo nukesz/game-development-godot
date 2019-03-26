@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://characters/Character.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -68,6 +70,11 @@ tracks/0/keys = {
 }
 
 [node name="Character" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 2
 
 [node name="Sprite" type="Sprite" parent="."]
 vframes = 4
@@ -101,3 +108,4 @@ cast_to = Vector2( -65, 0 )
 enabled = true
 cast_to = Vector2( 64, 0 )
 
+[connection signal="tween_completed" from="MoveTween" to="." method="_on_MoveTween_tween_completed"]
